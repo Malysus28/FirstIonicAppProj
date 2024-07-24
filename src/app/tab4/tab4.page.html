@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title color = "light" >Map</ion-title>
+    <ion-button (click)="onClickLogin()" color = "success"  slot = "end" shape="round">
+      <ion-avatar slot="icon-only">
+        <img *ngIf="selectedImage" [src]="selectedImage" alt="Avatar" />
+        <ion-icon *ngIf="!selectedImage" slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Locations of interest</ion-card-title>
+    </ion-card-header>
+  <!-- Info Card -->
+    <ion-card-content>
+      Locations of interest.
+      Lets keep track of locations you want to explore.
+    </ion-card-content>
+  </ion-card>
+<!-- map -->
+    <div #map id="map"></div>
+
+<!-- buttons -->
+  <ion-button color = "success " expand="full" (click) = "mapWithCurrentPosition()">Current Position</ion-button>
+  <ion-button color = "success " expand="full" (click)="enableAddMarker()">Add Marker</ion-button>
+
+  
+  
+</ion-content>

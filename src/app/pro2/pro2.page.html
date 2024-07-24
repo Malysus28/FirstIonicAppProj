@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title color="light">Projects Overview</ion-title>
+        <!-- Back button  -->
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/tab1" (click)="goBack()"></ion-back-button>
+</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Projects overview </ion-card-title>
+      <ion-card-subtitle>This chart visualizes both the completed projects and those pending, providing an overview of your the status</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <div class="chart-container">
+    <canvas id="projectChart"></canvas>
+  </div>
+
+</ion-content>

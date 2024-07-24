@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+<!-- display default icon, before image is added -->
+    <ion-button (click)="onClickLogin()" color = "success"  slot = "end" shape="round">
+      <ion-avatar slot="icon-only">
+        <img *ngIf="selectedImage" [src]="selectedImage" alt="Avatar" />
+        <ion-icon *ngIf="!selectedImage" slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+    </ion-button>
+    <ion-title color="light">
+      Projects
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-card color="light">
+  <ion-card-header>
+    <ion-card-title >Keep track of Projects</ion-card-title>
+    <ion-card-subtitle>
+      Stay updated on your projects. Tap the button at the bottom right corner to add a new task</ion-card-subtitle>
+  </ion-card-header>
+</ion-card>
+
+<ion-content>
+
+  <!-- ion card -->
+  <ion-card *ngFor="let project of projects; index as i"   >
+    <ion-card-header>
+
+      <!-- projects category display -->
+      <ion-card-subtitle>{{project.projCategory}}</ion-card-subtitle>
+      <ion-item  >
+        <!-- save when checked box -->
+        <ion-checkbox 
+        color="success"
+        slot="end"
+        [(ngModel)]="project.completed"
+        (ionChange)="toggleCompleted(i)"
+      ></ion-checkbox>
+
+        <!-- projects name display  -->
+        <ion-label >{{project.projName}}</ion-label>
+      </ion-item>
+
+      <!-- Project Date display  -->
+    
+      <p>Due Date: {{ project.projDate }}</p>
+      
+
+      <ion-text></ion-text>
+      
+    </ion-card-header>
+
+    <ion-row>
+<!-- complete projects btn   -->
+      <ion-item color="light"  button (click)="completeProj(i)">
+        <ion-icon color = "success" name="checkmark-outline" slot="start"></ion-icon>
+        <p>Complete</p>
+      </ion-item>
+
+<!-- edit projects btn  -->
+      <ion-item button color="light" (click)="editProj(i)" >
+        <ion-icon color="warning" name="pencil-outline" slot="start"></ion-icon>
+        <p>Edit</p>
+      </ion-item>
+
+<!-- delete projects btn  -->
+      <ion-item button color="light" (click)="deleteProj(i)" >
+        <ion-icon color="danger" name="trash-outline" slot="start"></ion-icon>
+        <ion-label>Delete</ion-label>
+      </ion-item>
+    </ion-row>
+  </ion-card>
+  
+
+  <!-- Add projects button  -->
+  <ion-fab vertical = "bottom" horizontal = "end" slot = "fixed">
+    <ion-fab-button (click) = "addProj()">
+      <ion-icon name = "add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-button (click)="onClickPro2()"slot="fixed" class="bottom-left">Overview</ion-button>
+
+</ion-content>
+
+
+

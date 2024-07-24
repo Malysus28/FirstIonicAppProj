@@ -1,0 +1,13 @@
+#map {
+    height: 70%;
+    width: 100%;
+}
+.scroll {
+    height: 50%;
+}
+
+.card-container {
+    height: 50%;
+    overflow-y: auto; /* Ensure the card container is scrollable if needed */
+    padding: 10px;
+}

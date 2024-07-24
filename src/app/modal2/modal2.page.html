@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title color="light">Modal2</ion-title>
+
+<!-- Back button  -->
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/tab2" (click)="goBack()"></ion-back-button>
+</ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+
+    <!-- Enter Project  -->
+    <ion-item>
+      <ion-textarea type="text" [(ngModel)]="projName" clearInput placeholder="Enter your task"></ion-textarea>
+    </ion-item>
+    
+  <!-- Category  -->
+    <ion-item>
+      <ion-icon name="pricetag-outline" slot = "start"></ion-icon>
+      <ion-label>Category</ion-label>
+      <span>{{projCategory}}</span>
+    </ion-item>
+
+    <!-- when i is selected from categories (i)  -->
+    <ion-chip color="warning" *ngFor="let category of categories; let i =index" (click) = "selectCategory(i)">
+    <ion-label>{{category}}</ion-label>
+    </ion-chip>
+
+    <!-- date (fix the date when selected?) -->
+    <ion-item>
+      <p>Date</p>
+      <ion-datetime display-format="MMM DD, YYYY HH:mm" [(ngModel)]="projDate"></ion-datetime> 
+    </ion-item>
+
+     <!-- Add or Edit button  -->
+    <ion-footer>
+      <ion-button expand="full" (click)="closemodal2()">Add or Edit</ion-button>
+    </ion-footer>
+  
+  </ion-card>
+   
+</ion-content>
+ 

@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab1" ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+  <ion-list>
+    
+      <img *ngIf="selectedImage" [src]="selectedImage" class="avatar-image" alt="Selected Image" />
+      <img *ngIf="!selectedImage" src="https://ionicframework.com/docs/img/demos/card-media.png" class="avatar-image" alt="Placeholder Image" />
+      <ion-item>
+        <input type="file" (change)="onFileSelected($event)" />
+      </ion-item>
+  
+    
+    <ion-list>
+      <ion-item>
+        <ion-input label="Username" placeholder="Enter username"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Password" type="password" ></ion-input>
+      </ion-item>
+      
+<!-- currently not acitive because the login button doesnt really need to do anything at this stage -->
+      <ion-button (click)="goBack()"shape="round" color="success">
+        <ion-icon slot="end" name="log-in"></ion-icon>
+        Login
+      </ion-button>
+
+
+
+    </ion-list>
+  </ion-list>
+</ion-content>

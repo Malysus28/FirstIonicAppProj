@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Pin Information</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="pinData">
+    <ion-card-header>
+      <ion-card-title>Pin Location</ion-card-title>
+      <ion-input [(ngModel)]="locationName" placeholder="Enter location name"></ion-input>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Latitude:</strong> {{ pinData.lat }}</p>
+      <p><strong>Longitude:</strong> {{ pinData.lng }}</p>
+      <ion-button expand="full" (click)="saveLocationName()">Save Location Name</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title color="light" >View Productivity</ion-title>
+    <!-- Back button  -->
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/tab1" (click)="goBack()"></ion-back-button>
+</ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Productivity chart</ion-card-title>
+      <ion-card-subtitle>This chart shows an overview of the tasks</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      The image is a placeholder
+    </ion-card-content>
+  </ion-card>
+  <div class="chart-container">
+    <canvas id="taskChart"></canvas>
+  </div>
+
+</ion-content>
+

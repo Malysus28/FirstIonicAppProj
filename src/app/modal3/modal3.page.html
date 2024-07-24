@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Add Items</ion-title>
+
+<!-- Back button  -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab3" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+
+  
+  <ion-list>
+<!-- insert list item  -->
+    <ion-item>
+      <ion-input type="text" placeholder="Text input" placeholder="Enter Item" [(ngModel)]="listItemName" clearInput></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  
+  <ion-footer>
+    <ion-button expand="full" (click)="closemodal()">Add or Edit</ion-button>
+  </ion-footer>
+</ion-content>

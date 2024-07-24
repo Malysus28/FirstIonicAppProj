@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary" >
+    <ion-title color="light" >Add Task </ion-title>
+
+<!-- Back button  -->
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/tab1" (click)="goBack()"></ion-back-button>
+</ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <!-- Enter task  -->
+    <ion-item>
+      <ion-textarea type="text" [(ngModel)]="taskName" clearInput placeholder="Enter your task"></ion-textarea>
+    </ion-item>
+    
+  <!-- Category  -->
+    <ion-item>
+      <ion-icon name="pricetag-outline" slot = "start"></ion-icon>
+      <ion-label>Category</ion-label>
+      <span>{{taskCategory}}</span>
+    </ion-item>
+
+    <!-- when i is selected from categories (i)  -->
+    <ion-chip color="primary" *ngFor="let category of categories; let i =index" (click) ="SelectCat(i)">
+    <ion-label>{{category}}</ion-label>
+    </ion-chip>
+
+    <!-- Add or Edit button  -->
+    <ion-footer>
+      <ion-button expand="full" (click)="closemodal()">Add or Edit</ion-button>
+    </ion-footer>
+  
+  </ion-card>
+   
+</ion-content>
+

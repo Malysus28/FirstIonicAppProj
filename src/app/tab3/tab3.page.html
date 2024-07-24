@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title color="light">
+      Grocery List 
+    </ion-title>
+    <ion-button (click)="onClickLogin()" color = "success"  slot = "end" shape="round">
+      <ion-avatar slot="icon-only">
+        <img *ngIf="selectedImage" [src]="selectedImage" alt="Avatar" />
+        <ion-icon *ngIf="!selectedImage" slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-avatar>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title >Lets stay organized with our grocery list</ion-card-title>
+      <ion-card-subtitle>
+        Lets not forgot items we need for the house. Tap the button at the bottom right corner to add a new task</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <!-- Listem item  -->
+    <ion-item-sliding *ngFor="let list of lists; index as i">
+      <ion-item [color]="list.checked?'success' : ''">
+        <ion-checkbox label-placement="start"(ionChange)="toggleChecked(i)">{{ list.listItemName }}</ion-checkbox>
+        
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteList(i)">Delete</ion-item-option>
+        <ion-item-option (click)="editList(i)">Edit</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+    <!-- Add list button  -->
+    <ion-fab vertical = "bottom" horizontal = "end" slot = "fixed">
+      <ion-fab-button (click) = "addList()">
+        <ion-icon name = "add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
+
